@@ -1,0 +1,5 @@
+# Godot Specific gitignore
+.import/
+*.translation
+export_presets.cfg
+.mono/
