@@ -1,11 +1,12 @@
 extends KinematicBody2D
 
+# The player moves with WASD keys
 # var to store velocity
 var velocity = Vector2.ZERO
 
-const ACCELARATION = 1800  
-const MAX_SPEED = 2500
-const FRICTION = 1500
+const ACCELARATION = 200  
+const MAX_SPEED = 100
+const FRICTION = 400
 
 func _physics_process(delta):
 	
@@ -21,11 +22,10 @@ func _physics_process(delta):
 	
 	# checking if the key is pressed or not and setting the velocity
 	if input_vector != Vector2.ZERO :
-		velocity += input_vector * ACCELARATION * delta
-		velocity = velocity.clamped(MAX_SPEED)
+		velocity = velocity.move_toward(input_vector * MAX_SPEED , ACCELARATION * delta)
 	else:
 		# move the velocity toward zero with fixed rate
 		velocity = velocity.move_toward(Vector2.ZERO , FRICTION * delta)
-	
+		
 	#inbuild godot function to move the kinematic body along the provided vector
-	move_and_slide(velocity * delta)
+	move_and_slide(velocity)
