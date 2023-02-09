@@ -3,9 +3,10 @@
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Obstacles/Boulder.tscn" type="PackedScene" id=2]
 
-[node name="Level-1_Main Scene" type="Node2D"]
+[node name="Level-1_Main Scene" type="YSort"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 45 )
 
 [node name="Boulder" parent="." instance=ExtResource( 2 )]
 position = Vector2( 153, 53 )
