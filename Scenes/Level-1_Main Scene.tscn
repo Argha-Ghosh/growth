@@ -3,19 +3,21 @@
 [ext_resource path="res://Assets/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Obstacles/Boulder.tscn" type="PackedScene" id=2]
 
-[node name="Level-1_Main Scene" type="YSort"]
+[node name="Level-1_Main Scene" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 64, 45 )
 
-[node name="Boulder" parent="." instance=ExtResource( 2 )]
+[node name="Boulder" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 153, 53 )
 
-[node name="Boulder2" parent="." instance=ExtResource( 2 )]
+[node name="Boulder2" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 33, 88 )
 
-[node name="Boulder3" parent="." instance=ExtResource( 2 )]
+[node name="Boulder3" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 224, 119 )
 
-[node name="Boulder4" parent="." instance=ExtResource( 2 )]
+[node name="Boulder4" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 82, 148 )

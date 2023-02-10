@@ -171,11 +171,13 @@ animation = "idle_up"
 blend_point_0/node = SubResource( 13 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 14 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 1.1 )
 blend_point_2/node = SubResource( 15 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 16 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id=18]
@@ -194,11 +196,13 @@ animation = "run_up"
 blend_point_0/node = SubResource( 18 )
 blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 19 )
-blend_point_1/pos = Vector2( 0, 1 )
+blend_point_1/pos = Vector2( 0, 1.1 )
 blend_point_2/node = SubResource( 20 )
 blend_point_2/pos = Vector2( 1, 0 )
 blend_point_3/node = SubResource( 21 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
@@ -247,5 +251,5 @@ tree_root = SubResource( 8 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 9 )
-parameters/idle/blend_position = Vector2( -0.389986, -0.066474 )
+parameters/idle/blend_position = Vector2( -0.00352609, 1.12225 )
 parameters/run/blend_position = Vector2( 0, 0 )
