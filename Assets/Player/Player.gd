@@ -8,6 +8,10 @@ const ACCELARATION = 400
 const MAX_SPEED = 100
 const FRICTION = 800
 
+onready var animation = $AnimationPlayer
+onready var animation_tree = $AnimationTree
+onready var animation_state = animation_tree.get("parameters/playback")
+
 func _physics_process(delta):
 	
 	# this var willl contain the key input
@@ -22,8 +26,14 @@ func _physics_process(delta):
 	
 	# checking if the key is pressed or not and setting the velocity
 	if input_vector != Vector2.ZERO :
+		animation_tree.set("parameters/idle/blend_position", input_vector)
+		animation_tree.set("parameters/run/blend_position", input_vector)
+		animation_state.travel("run")
+		
 		velocity = velocity.move_toward(input_vector * MAX_SPEED , ACCELARATION * delta)
 	else:
+		animation_state.travel("idle")
+		
 		# move the velocity toward zero with fixed rate
 		velocity = velocity.move_toward(Vector2.ZERO , FRICTION * delta)
 		
