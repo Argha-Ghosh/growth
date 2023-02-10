@@ -4,9 +4,9 @@ extends KinematicBody2D
 # var to store velocity
 var velocity = Vector2.ZERO
 
-const ACCELARATION = 200  
+const ACCELARATION = 400  
 const MAX_SPEED = 100
-const FRICTION = 400
+const FRICTION = 800
 
 func _physics_process(delta):
 	
