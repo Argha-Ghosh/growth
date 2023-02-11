@@ -308,7 +308,7 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=8]
 states/fireball/node = SubResource( 33 )
-states/fireball/position = Vector2( 339.148, 207 )
+states/fireball/position = Vector2( 339.214, 207 )
 states/idle/node = SubResource( 17 )
 states/idle/position = Vector2( 339.197, 118.111 )
 states/run/node = SubResource( 22 )
@@ -319,6 +319,7 @@ start_node = "idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=9]
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 4
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -354,6 +355,9 @@ tree_root = SubResource( 8 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 9 )
-parameters/fireball/blend_position = Vector2( -0.0643154, 0.499133 )
+parameters/fireball/blend_position = Vector2( -0.371369, -0.874277 )
 parameters/idle/blend_position = Vector2( -0.00352609, 1.12225 )
 parameters/run/blend_position = Vector2( 0, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
