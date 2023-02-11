@@ -30,6 +30,10 @@ func _process(delta: float) -> void:
 		position = position.move_toward(player.position, speed*delta)
 	else:
 		position = position.move_toward(target_location, speed*delta)
+	
+	if Input.is_action_just_pressed("Attack"):
+		queue_free()	
+		create_dead_effect()
 
 func _on_Explore_timeout() -> void:
 	target_location = Vector2(rand_range(-exploration_limit, exploration_limit), rand_range(-exploration_limit, exploration_limit))
@@ -44,8 +48,11 @@ func look_for_player(playerPos :Vector2) -> void:
 	if (playerPos - position).length() < detect_player:
 		_state = AGGRO
 
+func create_dead_effect():
+	if Input.is_action_just_pressed("Attack"):
+		var HitEffect = load("res://Scenes/Hit_effect.tscn")
+		var hitEffect = HitEffect.instance()
+		var level = get_tree().current_scene
+		level.add_child(hitEffect)
+		hitEffect.global_position = global_position
 
-func _on_Area2D_body_entered(body: Node) -> void:
-	#print("Entered!")
-	#target_location = body.position
-	player = body
