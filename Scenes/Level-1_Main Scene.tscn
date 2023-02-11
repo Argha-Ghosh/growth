@@ -531,5 +531,14 @@ position = Vector2( 584, -64 )
 [node name="Boulder4" parent="YSort/Boulders" instance=ExtResource( 2 )]
 position = Vector2( 32, -8 )
 
+[node name="BatSpawner2" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 322, 254 )
+
 [node name="BatSpawner" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( -18, -40 )
+position = Vector2( -24, -36 )
+
+[node name="BatSpawner3" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( -4, 227 )
+
+[node name="BatSpawner" parent="YSort/BatSpawner3" instance=ExtResource( 5 )]
+position = Vector2( 349, -75 )
