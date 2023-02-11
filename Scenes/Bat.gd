@@ -39,3 +39,9 @@ func _on_Explore_timeout() -> void:
 func look_for_player(playerPos :Vector2) -> void:
 	if (playerPos - position).length() < detect_player:
 		_state = AGGRO
+
+
+func _on_Area2D_body_entered(body: Node) -> void:
+	$Explore.stop()
+	print("Entered!")
+	target_location = body.position

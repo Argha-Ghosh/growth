@@ -44,6 +44,8 @@ radius = 100.0
 [node name="Bat" type="KinematicBody2D"]
 position = Vector2( 160, 84 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -71,3 +73,4 @@ anims/RESET = SubResource( 3 )
 shape = SubResource( 4 )
 
 [connection signal="timeout" from="Explore" to="." method="_on_Explore_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
