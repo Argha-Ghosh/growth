@@ -7,6 +7,12 @@ enum{
 
 var state = MOVE
 
+#score system
+var score = 0 setget set_score
+
+func set_score(value):
+	score += value
+	$Score.set_text("score "+ str(score))
 
 
 # The player moves with WASD keys

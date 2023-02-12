@@ -86,8 +86,10 @@ Attack={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Mob"
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="mob"
+2d_physics/layer_4="mob_hurtbox"
 
 [physics]
 
