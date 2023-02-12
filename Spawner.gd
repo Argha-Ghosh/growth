@@ -4,6 +4,7 @@ export(PackedScene) var bat
 export(PackedScene) var gbat
 export var spawn_rate :int
 export var rare_spawn_rate :int
+var spawned_unit
 
 
 func _ready() -> void:
@@ -23,7 +24,6 @@ func spawn():
 	else:
 		spawned_unit = bat.instance()
 	add_child(spawned_unit)
-	print("Spawned")
 
 
 

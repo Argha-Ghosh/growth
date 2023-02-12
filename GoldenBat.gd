@@ -56,3 +56,7 @@ func create_dead_effect():
 	var level = get_tree().current_scene
 	level.add_child(hitEffect)
 	hitEffect.global_position = global_position
+
+
+func _on_GoldenBat_tree_exited() -> void:
+	PlayerData.score += 10

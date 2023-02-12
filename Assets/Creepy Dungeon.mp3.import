@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Creepy Dungeon.mp3-e81af3f6155406728d5b8754e50c692c.mp3str"
+
+[deps]
+
+source_file="res://Assets/Creepy Dungeon.mp3"
+dest_files=[ "res://.import/Creepy Dungeon.mp3-e81af3f6155406728d5b8754e50c692c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
