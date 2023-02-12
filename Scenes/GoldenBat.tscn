@@ -76,6 +76,7 @@ collision_mask = 0
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource( 4 )
 
+[connection signal="tree_exited" from="." to="." method="_on_GoldenBat_tree_exited"]
 [connection signal="timeout" from="Explore" to="." method="_on_Explore_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

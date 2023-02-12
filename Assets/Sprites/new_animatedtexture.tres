@@ -8,6 +8,7 @@
 [ext_resource path="res://Assets/Sprites/lava6.png" type="Texture" id=6]
 
 [resource]
+flags = 2
 frames = 6
 fps = 7.0
 frame_0/texture = ExtResource( 1 )

@@ -13,6 +13,7 @@ var player
 #signal kill_score(value)
 var score = 1
 
+
 """
 AI Logic:
 	* Bat has two modes: aggro and passive
@@ -68,5 +69,5 @@ func set_score(new_score: int):
 	
 
 func _on_Bat_tree_exited():
-	set_score(score+1)
+	PlayerData.score += 1
 	#emit_signal("kill_score",1)

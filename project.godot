@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="growth"
-run/main_scene="res://Scenes/Level-1_Main Scene.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerData="*res://Autoload/PlayerData.tscn"
 
 [display]
 
