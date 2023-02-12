@@ -31,9 +31,6 @@ func _process(delta: float) -> void:
 	else:
 		position = position.move_toward(target_location, speed*delta)
 	
-	if Input.is_action_just_pressed("Attack"):
-		queue_free()
-		create_dead_effect()
 
 func _on_Explore_timeout() -> void:
 	target_location = Vector2(rand_range(-exploration_limit, exploration_limit), rand_range(-exploration_limit, exploration_limit))
@@ -50,12 +47,12 @@ func look_for_player(playerPos :Vector2) -> void:
 
 
 func _on_Hurtbox_area_entered(area):
+	create_dead_effect()
 	queue_free()
 	
 func create_dead_effect():
-	if Input.is_action_just_pressed("Attack"):
-		var HitEffect = load("res://Scenes/Hit_effect.tscn")
-		var hitEffect = HitEffect.instance()
-		var level = get_tree().current_scene
-		level.add_child(hitEffect)
-		hitEffect.global_position = global_position
+	var HitEffect = load("res://Scenes/Hit_effect.tscn")
+	var hitEffect = HitEffect.instance()
+	var level = get_tree().current_scene
+	level.add_child(hitEffect)
+	hitEffect.global_position = global_position

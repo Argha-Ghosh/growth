@@ -9,6 +9,10 @@ var target_location :Vector2
 export var detect_player:int
 var player
 
+
+#signal kill_score(value)
+var score = 1
+
 """
 AI Logic:
 	* Bat has two modes: aggro and passive
@@ -30,12 +34,22 @@ func _process(delta: float) -> void:
 		position = position.move_toward(player.position, speed*delta)
 	else:
 		position = position.move_toward(target_location, speed*delta)
-	
-	if Input.is_action_just_pressed("Attack"):
-		queue_free()	
-		create_dead_effect()
 
-func _on_Explore_timeout() -> void:
+
+func look_for_player(playerPos :Vector2) -> void:
+	if (playerPos - position).length() < detect_player:
+		_state = AGGRO
+
+func create_dead_effect():
+	var HitEffect = load("res://Scenes/Hit_effect.tscn")
+	var hitEffect = HitEffect.instance()
+	var level = get_tree().current_scene
+	level.add_child(hitEffect)
+	hitEffect.global_position = global_position
+
+
+
+func _on_Explore_timeout():
 	target_location = Vector2(rand_range(-exploration_limit, exploration_limit), rand_range(-exploration_limit, exploration_limit))
 	if $Sprite.flip_h == false and target_location.x < 0:
 		$Sprite.flip_h = true
@@ -44,15 +58,15 @@ func _on_Explore_timeout() -> void:
 	target_location += position
 	print(target_location)
 
-func look_for_player(playerPos :Vector2) -> void:
-	if (playerPos - position).length() < detect_player:
-		_state = AGGRO
 
-func create_dead_effect():
-	if Input.is_action_just_pressed("Attack"):
-		var HitEffect = load("res://Scenes/Hit_effect.tscn")
-		var hitEffect = HitEffect.instance()
-		var level = get_tree().current_scene
-		level.add_child(hitEffect)
-		hitEffect.global_position = global_position
+func _on_Hurtbox_area_entered(area):
+	create_dead_effect()
+	queue_free()
 
+func set_score(new_score: int):
+	score = new_score
+	
+
+func _on_Bat_tree_exited():
+	set_score(score+1)
+	#emit_signal("kill_score",1)
